@@ -10,6 +10,7 @@ def findClosestValueInBst(tree,target):
     findClosestValueInBST(tree,target,result)
     return result[0]
 
+# O(log N) average time | O(N) worst case -> not balanced BST 
 def findClosestValueInBST(tree, target, closest):
 
     if abs(closest[0] - target) > abs(tree.value - target):
