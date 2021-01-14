@@ -12,23 +12,23 @@ def runningLengthEncoding(string):
             counter += 1
 
             if counter == 10:
-                encodedString.append("9")
-                encodedString.append(prevCharacter)
+                insertEncodedSubstring(9,prevCharacter,encodedString)
                 counter = 1
         
         else:
-            encodedString.append(str(counter))
-            encodedString.append(prevCharacter)
+            insertEncodedSubstring(counter,prevCharacter,encodedString)
             prevCharacter = actualCharacter
             counter = 1
         
     
     if counter > 0:
-        encodedString.append(str(counter))
-        encodedString.append(prevCharacter)
+        insertEncodedSubstring(counter,prevCharacter,encodedString)
     
     return "".join(encodedString)
 
+def insertEncodedSubstring(counter,character, result):
+    result.append(str(counter))
+    result.append(character)
 
 print(runningLengthEncoding("AAA"))
 print(runningLengthEncoding("AAAAAAAAAAAAABBCCCCDD"))
