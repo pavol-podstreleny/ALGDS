@@ -20,15 +20,12 @@ def largestRange(array):
             leftNumber = number - 1
             rightNumber = number + 1
 
-            leftMost = number
-            rightMost = number
-
             while leftNumber in numbers or rightNumber in numbers:
                 if leftNumber in numbers:
-                    leftMost = leftNumber
+                    numbers[leftNumber] = True
                     leftNumber -= 1
                 if rightNumber in numbers:
-                    rightMost = rightNumber
+                    numbers[rightNumber] = True
                     rightNumber += 1
 
             if abs(rightNumber-1 - leftNumber+1) > totalLength:
