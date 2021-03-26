@@ -2,28 +2,18 @@ def minHeightBst(array):
     return minHeightBstHelper(array, None, True)
 
 
-def minHeightBstHelper(array, head, isLeft):
+def minHeightBst(array):
+    return minHeightBstHelper(array)
+
+
+def minHeightBstHelper(array):
     if len(array) == 0:
         return
 
-    if len(array) == 1:
-        node = BST(array[0])
-        if head is None:
-            return node
-        if isLeft:
-            head.left = node
-        else:
-            head.right = node
-
-        return node
-
-    left = 0
-    right = len(array) - 1
-    middle = (left + right) // 2
+    middle = (0 + len(array)-1) // 2
     node = BST(array[middle])
-
-    node.left = minHeightBstHelper(array[:middle], node, True)
-    node.right = minHeightBstHelper(array[middle+1:], node, False)
+    node.left = minHeightBstHelper(array[:middle])
+    node.right = minHeightBstHelper(array[middle+1:])
 
     return node
 
