@@ -1,8 +1,4 @@
 def minHeightBst(array):
-    return minHeightBstHelper(array, None, True)
-
-
-def minHeightBst(array):
     return minHeightBstHelper(array)
 
 
